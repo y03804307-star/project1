@@ -2,27 +2,15 @@ pipeline {
     agent any
 
     stages {
-        stage('Hello') {
+        stage('Install Dependencies') {
             steps {
-                echo 'Hello, Jenkins!'
+                bat 'npm install'
             }
         }
 
-        stage('Build') {
+        stage('Build React App') {
             steps {
-                echo 'Building Project...'
-            }
-        }
-
-        stage('Test') {
-            steps {
-                echo 'Running Tests...'
-            }
-        }
-
-        stage('Deploy') {
-            steps {
-                echo 'Deploying Project...'
+                bat 'npm run build'
             }
         }
     }
